@@ -89,7 +89,7 @@ data "aws_iam_policy_document" "s3_vpc_endpoint_policy" {
     condition {
       test     = "StringEquals"
       variable = "aws:PrincipalAccount"
-      values   = ["414351767826"]
+      values   = ["414351767826","548125073166"]
     }
   }
 
@@ -150,7 +150,7 @@ data "aws_iam_policy_document" "s3_vpc_endpoint_policy" {
     condition {
       test     = "StringEquals"
       variable = "aws:ResourceAccount"
-      values   = ["414351767826"]
+      values   = ["414351767826","548125073166"]
     }
   }
 
@@ -177,7 +177,7 @@ data "aws_iam_policy_document" "s3_vpc_endpoint_policy" {
     condition {
       test     = "StringEquals"
       variable = "aws:PrincipalAccount"
-      values   = ["414351767826"]
+      values   = ["414351767826","548125073166"]
     }
   }
 
@@ -204,7 +204,7 @@ data "aws_iam_policy_document" "s3_vpc_endpoint_policy" {
     condition {
       test     = "StringEquals"
       variable = "aws:PrincipalAccount"
-      values   = ["414351767826"]
+      values   = ["414351767826","548125073166"]
     }
   }
 
@@ -230,7 +230,7 @@ data "aws_iam_policy_document" "s3_vpc_endpoint_policy" {
     condition {
       test     = "StringEquals"
       variable = "aws:PrincipalAccount"
-      values   = ["414351767826"]
+      values   = ["414351767826","548125073166"]
     }
   }
 }
@@ -268,7 +268,8 @@ data "aws_iam_policy_document" "sts_vpc_endpoint_policy" {
       type = "AWS"
       identifiers = [
         "arn:aws:iam::414351767826:user/databricks-datasets-readonly-user-prod",
-        "414351767826"
+        "414351767826",
+        "548125073166"
       ]
     }
   }
@@ -288,7 +289,7 @@ data "aws_iam_policy_document" "kinesis_vpc_endpoint_policy" {
 
     principals {
       type        = "AWS"
-      identifiers = ["414351767826"]
+      identifiers = ["414351767826","548125073166"]
     }
   }
 }

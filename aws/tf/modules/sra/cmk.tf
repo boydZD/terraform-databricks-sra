@@ -23,7 +23,7 @@ resource "aws_kms_key" "workspace_storage" {
         "Sid" : "Allow Databricks to use KMS key for DBFS",
         "Effect" : "Allow",
         "Principal" : {
-          "AWS" : "arn:aws:iam::414351767826:root"
+          "AWS" : "arn:aws:iam::548125073166:root"
         },
         "Action" : [
           "kms:Encrypt",
@@ -43,7 +43,8 @@ resource "aws_kms_key" "workspace_storage" {
         "Sid" : "Allow Databricks to use KMS key for EBS",
         "Effect" : "Allow",
         "Principal" : {
-          "AWS" : aws_iam_role.cross_account_role.arn
+          #"AWS" : aws_iam_role.cross_account_role.arn
+          "AWS" : "arn:aws:iam::826763667205:role/cse2_cross_account_role"
         },
         "Action" : [
           "kms:Decrypt",
@@ -60,7 +61,7 @@ resource "aws_kms_key" "workspace_storage" {
       }
     ]
   })
-  depends_on = [aws_iam_role.cross_account_role]
+  #depends_on = [aws_iam_role.cross_account_role]
 
   tags = {
     Name    = "${var.resource_prefix}-workspace-storage-key"
@@ -94,7 +95,7 @@ resource "aws_kms_key" "managed_services" {
         "Sid" : "Allow Databricks to use KMS key for managed services in the control plane",
         "Effect" : "Allow",
         "Principal" : {
-          "AWS" : "arn:aws:iam::414351767826:root"
+          "AWS" : "arn:aws:iam::548125073166:root"
         },
         "Action" : [
           "kms:Encrypt",

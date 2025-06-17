@@ -36,7 +36,8 @@ module "databricks_mws_workspace" {
   security_group_ids          = var.custom_sg_id != null ? [var.custom_sg_id] : [aws_security_group.sg[0].id]
   subnet_ids                  = var.custom_private_subnet_ids != null ? var.custom_private_subnet_ids : module.vpc[0].private_subnets
   vpc_id                      = var.custom_vpc_id != null ? var.custom_vpc_id : module.vpc[0].vpc_id
-  cross_account_role_arn      = aws_iam_role.cross_account_role.arn
+  #cross_account_role_arn      = aws_iam_role.cross_account_role.arn
+  cross_account_role_arn =    "arn:aws:iam::826763667205:role/cse2_cross_account_role"
   bucket_name                 = aws_s3_bucket.root_storage_bucket.id
   region                      = var.region
   backend_rest                = var.custom_workspace_vpce_id != null ? var.custom_workspace_vpce_id : aws_vpc_endpoint.backend_rest[0].id

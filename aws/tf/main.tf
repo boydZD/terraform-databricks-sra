@@ -17,8 +17,8 @@ module "sra" {
 
   # REQUIRED:
   network_configuration     = "isolated" # Network (custom or isolated), see README.md for more information.
-  metastore_exists          = false      # If a regional metastore exists set to true.
-  audit_log_delivery_exists = false      # If audit log delivery is already configured.
+  metastore_exists          = true      # If a regional metastore exists set to true.
+  audit_log_delivery_exists = true      # If audit log delivery is already configured.
 
   # REQUIRED - IF USING ISOLATED NETWORK:
   vpc_cidr_range           = "10.0.0.0/18" # Please re-define the subsequent subnet ranges if the VPC CIDR range is updated.
@@ -38,8 +38,8 @@ module "sra" {
   # custom_workspace_vpce_id  = "vpce-0abcdef1234567890" # Example PrivateLink endpoint ID for Databricks workspace
 
   # OPTIONAL - ENABLE SECURITY ANALYSIS TOOL:
-  enable_security_analysis_tool = true
+  enable_security_analysis_tool = false
 
   # OPTIONAL - DEPLOYMENT NAME:
-  deployment_name = null # Deployment name for the workspace. Must first be enabled by a Databricks representative.
+  deployment_name = "sandbox" # Deployment name for the workspace. Must first be enabled by a Databricks representative.
 }
