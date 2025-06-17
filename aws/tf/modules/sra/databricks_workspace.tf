@@ -18,13 +18,13 @@ module "uc_catalog" {
 }
 
 # System Table Schemas Enablement
-module "system_table" {
-  source = "./databricks_workspace/system_schema"
-  providers = {
-    databricks = databricks.created_workspace
-  }
-  depends_on = [module.uc_assignment]
-}
+# module "system_table" {
+#   source = "./databricks_workspace/system_schema"
+#   providers = {
+#     databricks = databricks.created_workspace
+#   }
+#   depends_on = [module.uc_assignment]
+# }
 
 # Create Create Cluster
 module "cluster_configuration" {
