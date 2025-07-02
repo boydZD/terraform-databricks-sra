@@ -96,5 +96,7 @@ resource "databricks_mws_workspaces" "workspace" {
   storage_customer_managed_key_id          = databricks_mws_customer_managed_keys.workspace_storage.customer_managed_key_id
   pricing_tier                             = "ENTERPRISE"
 
+  token {}
+
   depends_on = [databricks_mws_networks.this]
 }

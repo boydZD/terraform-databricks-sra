@@ -48,7 +48,7 @@ module "databricks_mws_workspace" {
   deployment_name             = var.deployment_name
 }
 
-# User Workspace Assignment (Admin)
+#User Workspace Assignment (Admin)
 module "user_assignment" {
   source = "./databricks_account/user_assignment"
   providers = {

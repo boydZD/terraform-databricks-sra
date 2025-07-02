@@ -25,7 +25,7 @@ module "sra" {
   private_subnets_cidr     = ["10.0.0.0/22", "10.0.4.0/22", "10.0.8.0/22"]
   privatelink_subnets_cidr = ["10.0.28.0/26", "10.0.28.64/26", "10.0.28.128/26"]
   availability_zones       = [data.aws_availability_zones.available.names[0], data.aws_availability_zones.available.names[1], data.aws_availability_zones.available.names[2]]
-  sg_egress_ports          = [443, 2443, 6666, 8443, 8444, 8445, 8446, 8447, 8448, 8449, 8450, 8451]
+  sg_egress_ports          = [443, 2443, 6666, 8443, 8444, 8445, 8446, 8447, 8448, 8449, 8450, 8451, 3306]
 
   # REQUIRED - IF USING NON-ROOT ACCOUNT CMK ADMIN:
   # cmk_admin_arn             = "arn:aws:iam::123456789012:user/CMKAdmin" # Example CMK ARN
@@ -43,3 +43,20 @@ module "sra" {
   # OPTIONAL - DEPLOYMENT NAME:
   deployment_name = "irs-demo" # Deployment name for the workspace. Must first be enabled by a Databricks representative.
 }
+
+# module "ext-hms" {
+#   source = "./modules/aws-external-metastore-rds"
+#   providers = {
+#     aws = aws
+#   }
+
+#   vpc_id = module.sra.vpc_id
+#   databricks_workspace_url = module.sra.databricks_host
+#   databricks_workspace_token = module.sra.databricks_token
+#   tags = {
+#     Project = var.resource_prefix
+#   }
+#   region = var.region
+#   project_name = var.resource_prefix
+
+# }

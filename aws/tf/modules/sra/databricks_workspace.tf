@@ -56,13 +56,13 @@ module "restrictive_root_bucket" {
 }
 
 # Disable legacy access settings like Hive Metastore, Disables Databricks Runtime prior to 13.3 LTS, etc.
-module "disable_legacy_access_setting" {
-  source = "./databricks_workspace/disable_legacy_access_settings"
-  providers = {
-    databricks = databricks.created_workspace
-  }
+# module "disable_legacy_access_setting" {
+#   source = "./databricks_workspace/disable_legacy_access_settings"
+#   providers = {
+#     databricks = databricks.created_workspace
+#   }
 
-  depends_on = [
-    module.databricks_mws_workspace
-  ]
-}
+#   depends_on = [
+#     module.databricks_mws_workspace
+#   ]
+# }

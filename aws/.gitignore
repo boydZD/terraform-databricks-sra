@@ -41,3 +41,7 @@ override.tf.json
 
 # IntelliJ
 .idea/
+
+# ignore binaries
+*.jar
+*.tar.gz
