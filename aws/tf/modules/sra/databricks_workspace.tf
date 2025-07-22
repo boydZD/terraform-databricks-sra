@@ -66,3 +66,15 @@ module "restrictive_root_bucket" {
 #     module.databricks_mws_workspace
 #   ]
 # }
+
+# module "hms_table" {
+#   source = "./databricks_workspace/internal_hms_external_table"
+#   providers = {
+#     databricks = databricks.created_workspace
+#   }
+
+#   #resource_prefix = var.resource_prefix
+#   crossaccount_role_name = aws_iam_role.cross_account_role.name
+
+#   depends_on = [module.databricks_mws_workspace]
+# }

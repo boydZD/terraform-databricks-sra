@@ -5,6 +5,7 @@ data "databricks_metastore" "this" {
   count  = var.metastore_exists ? 1 : 0
   #region = var.region
   name = "one-env-us-east-1-metastore"
+  #name = "us-east-1-metastore"
 }
 
 resource "databricks_metastore" "this" {
