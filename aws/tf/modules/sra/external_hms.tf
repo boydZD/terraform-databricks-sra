@@ -1,22 +1,22 @@
-# module "ext-hms" {
-#   source = "./aws-external-metastore-rds"
-#   providers = {
-#     aws = aws
-#     databricks = databricks.created_workspace
-#   }
+module "ext-hms" {
+  source = "./aws-external-metastore-existing"
+  providers = {
+    aws = aws
+    databricks = databricks.created_workspace
+  }
 
-#   vpc_id = module.vpc[0].vpc_id
-#   workspace_security_group_id = aws_security_group.sg[0].id
+  hive_database = "organization0"
+  rds_host = "jb-test-ext-hms-v2.cj11tymkwz5w.us-west-2.rds.amazonaws.com"
+  rds_user = "databricks"
+  rds_pword = "Databricks2025"
+  hive_version = "0.13.0"
 
-#   #databricks_workspace_url = module.sra.databricks_host
-#   #databricks_workspace_token = module.sra.databricks_token
+  tags = {
+    Project = var.resource_prefix
+  }
+  
+  project_name = var.resource_prefix
 
-#   tags = {
-#     Project = var.resource_prefix
-#   }
-#   region = var.region
-#   project_name = var.resource_prefix
+  depends_on = [module.databricks_mws_workspace, module.uc_assignment]
 
-#   depends_on = [module.databricks_mws_workspace, module.uc_assignment]
-
-# }
+}
