@@ -3,14 +3,15 @@
 # Optional data source - only run if the metastore exists
 data "databricks_metastore" "this" {
   count  = var.metastore_exists ? 1 : 0
-  #region = var.region
-  name = "one-env-us-east-1-metastore"
+  region = var.region
+  #name = "one-env-us-east-1-metastore"
   #name = "us-east-1-metastore"
 }
 
 resource "databricks_metastore" "this" {
   count         = var.metastore_exists ? 0 : 1
-  name          = "${var.region}-unity-catalog"
+  name          = "${var.resource_prefix}-${var.region}-uc"
   region        = var.region
   force_destroy = true
+  owner = "admins"
 }

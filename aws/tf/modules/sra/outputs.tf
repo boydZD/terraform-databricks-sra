@@ -11,3 +11,7 @@ output "databricks_host" {
 # output "vpc_id" {
 #   value     = module.vpc[0].vpc_id
 # }
+
+output "nat_gw_pub_ips" {
+  value = module.vpc[0].nat_public_ips
+}

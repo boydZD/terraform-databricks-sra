@@ -86,6 +86,11 @@ variable "project_name" {
   description = "workspace name"
 }
 
+variable "instance_profile_arn" {
+  default = ""
+  description = "Instance Profile ARN to be included as part of the HMS metastore cluster policy"
+}
+
 # resource "random_string" "naming" {
 #   special = false
 #   upper   = false

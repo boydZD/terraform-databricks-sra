@@ -4,6 +4,10 @@
 
 locals {
   default_policy = {
+    "aws_attributes.instance_profile_arn": {
+      "type": "unlimited",
+      "defaultValue": "${var.instance_profile_arn}"
+    },
     "spark_conf.spark.databricks.sql.initial.catalog.name" = { 
       "type": "fixed", 
       "value": "hive_metastore",

@@ -17,7 +17,7 @@ module "sra" {
 
   # REQUIRED:
   network_configuration     = "isolated" # Network (custom or isolated), see README.md for more information.
-  metastore_exists          = true      # If a regional metastore exists set to true.
+  metastore_exists          = false      # If a regional metastore exists set to true.
   audit_log_delivery_exists = true      # If audit log delivery is already configured.
 
   # REQUIRED - IF USING ISOLATED NETWORK:
